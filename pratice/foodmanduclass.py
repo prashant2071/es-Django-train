@@ -18,10 +18,8 @@ class FoodmanduFetch:
              "price":menu["price"]
          }
          output.append(tmp)
-        headers = output[0].keys()  
-         
+        headers = output[0].keys()   
         with open('foodmandu-menus.csv', 'w') as file_object:
-        
           dict_writer.writerows(output) 
           dict_writer = csv.DictWriter(file_object, headers)
           dict_writer.writeheader()
