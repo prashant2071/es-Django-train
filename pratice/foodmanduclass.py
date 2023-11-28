@@ -12,19 +12,20 @@ class FoodmanduFetch:
         all_menus = all_menus[0]['items']
         output =[]
         for menu in all_menus:
-         print("name:",menu['name']," price : ",menu["price"])
-         tmp={
+            print("name:",menu['name']," price : ",menu["price"])
+            tmp={
              "name":menu['name'],
              "price":menu["price"]
-         }
-         output.append(tmp)
+            }
+            output.append(tmp)
         headers = output[0].keys()   
         with open("foodmandu-menu.csv","w") as file_object:
             dict_writer = csv.DictWriter(file_object, headers)
-		    dict_writer.writeheader()
-		    dict_writer.writerows(output) 
+            dict_writer.writeheader()
+            dict_writer.writerows(output)
+        return all_menus
 
 s= FoodmanduFetch()
 s.scrape_menu(1027)
 print("--------------------------------")
-s.scrape_menu(1028)
+# s.scrape_menu(1028)
